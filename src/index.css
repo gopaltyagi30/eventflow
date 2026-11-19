@@ -1,0 +1,252 @@
+
+@import "tailwindcss";
+
+/* =================================
+   THEME VARIABLES
+================================= */
+
+/* DARK THEME - DEFAULT */
+
+:root {
+  color-scheme: dark;
+
+  --page-bg: #0d0c10;
+  --card-bg: #18161f;
+  --hover-bg: #211e2b;
+  --elevated-bg: #25212f;
+
+  --text-color: #f5f3fa;
+  --muted-color: #a09bae;
+
+  --border-color: #302c3a;
+
+  --input-bg: #211e29;
+  --sidebar-bg: #111015;
+
+  --accent-color: #8b5cf6;
+}
+
+/* LIGHT THEME */
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --page-bg: #f5f5fa;
+  --card-bg: #ffffff;
+  --hover-bg: #eeeaf5;
+  --elevated-bg: #ffffff;
+
+  --text-color: #211e2b;
+  --muted-color: #777180;
+
+  --border-color: #e3dfeb;
+
+  --input-bg: #f4f2f8;
+  --sidebar-bg: #ffffff;
+
+  --accent-color: #7c3aed;
+}
+
+/* =================================
+   GLOBAL RESET
+================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  width: 100%;
+}
+
+html {
+  background: var(--page-bg);
+  color: var(--text-color);
+}
+
+body {
+  overflow-x: hidden;
+
+  background: var(--page-bg);
+  color: var(--text-color);
+
+  font-family: Inter, Arial, sans-serif;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* =================================
+   MAIN APPLICATION LAYOUT
+================================= */
+
+.app-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+
+  background: var(--page-bg);
+  color: var(--text-color);
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+
+  width: 230px;
+  min-width: 230px;
+  height: 100vh;
+
+  z-index: 100;
+  flex-shrink: 0;
+
+  background: var(--sidebar-bg);
+  color: var(--text-color);
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    width 0.25s ease;
+}
+
+/* MAIN CONTENT */
+
+.app-content {
+  flex: 1;
+  min-width: 0;
+
+  width: calc(100% - 230px);
+  margin-left: 230px;
+
+  background: var(--page-bg);
+  color: var(--text-color);
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+/* NAVBAR */
+
+.navbar {
+  position: sticky;
+  top: 0;
+
+  z-index: 50;
+
+  width: 100%;
+  min-width: 0;
+  height: 64px;
+}
+
+/* PAGE CONTENT */
+
+.main-content {
+  width: 100%;
+  min-width: 0;
+
+  background: var(--page-bg);
+  color: var(--text-color);
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+/* =================================
+   REUSABLE THEME CLASSES
+================================= */
+
+.theme-page {
+  background: var(--page-bg);
+  color: var(--text-color);
+}
+
+.theme-card {
+  background: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+.theme-hover {
+  background: var(--hover-bg);
+}
+
+.theme-elevated {
+  background: var(--elevated-bg);
+}
+
+.theme-input {
+  background: var(--input-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+.theme-muted {
+  color: var(--muted-color);
+}
+
+.theme-border {
+  border-color: var(--border-color);
+}
+
+.theme-accent {
+  color: var(--accent-color);
+}
+
+/* =================================
+   RESPONSIVE LAYOUT
+================================= */
+
+@media (max-width: 750px) {
+  .sidebar {
+    width: 65px;
+    min-width: 65px;
+  }
+
+  .app-content {
+    margin-left: 65px;
+    width: calc(100% - 65px);
+  }
+}
+
+/* =================================
+   THEME TRANSITIONS
+================================= */
+
+.app-layout,
+.app-content,
+.main-content,
+.sidebar,
+.navbar,
+.theme-card,
+.theme-input {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
