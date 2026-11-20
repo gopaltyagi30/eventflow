@@ -110,13 +110,13 @@ const Login = () => {
                   Password
                 </label>
 
-                <button
+                {/* <button
                   type="button"
                   onClick={() => navigate("/forgot-password")}
                   className="text-xs text-violet-400 hover:underline"
                 >
                   Forgot password?
-                </button>
+                </button> */}
               </div>
 
               <div className={wrapperClass}>

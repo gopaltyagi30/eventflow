@@ -1,4 +1,3 @@
-
 import React from "react";
 import {
   Activity,
@@ -15,6 +14,7 @@ import {
 } from "lucide-react";
 
 import { useRegisterAuth } from "../hooks/authHooks";
+import { NavLink } from "react-router";
 
 const Register = () => {
   const {
@@ -39,10 +39,8 @@ const Register = () => {
 
   return (
     <div className="flex min-h-screen bg-[var(--page-bg)] text-[var(--text-color)]">
-
       {/* LEFT SIDE */}
       <section className="flex min-h-screen w-full flex-col px-5 py-6 sm:px-10 lg:w-1/2 lg:px-12 xl:px-20">
-
         {/* HEADER */}
         <header className="flex items-center justify-between">
           <button
@@ -55,9 +53,7 @@ const Register = () => {
             </div>
 
             <div>
-              <strong className="block text-lg font-bold">
-                EventFlow
-              </strong>
+              <strong className="block text-lg font-bold">EventFlow</strong>
               <span className="text-[9px] font-semibold tracking-[2px] text-[var(--muted-color)]">
                 OPERATIONAL CONSOLE
               </span>
@@ -72,7 +68,6 @@ const Register = () => {
 
         {/* FORM CONTENT */}
         <main className="mx-auto flex w-full max-w-[480px] flex-1 flex-col justify-center py-10">
-
           <div className="mb-8">
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-violet-500/20 bg-violet-500/10 px-3 py-1.5 text-[11px] font-semibold tracking-wider text-violet-400">
               <UserRound size={14} />
@@ -84,17 +79,13 @@ const Register = () => {
             </h1>
 
             <p className="mt-3 text-sm leading-6 text-[var(--muted-color)]">
-              Join EventFlow and start managing experiences
-              that bring people together.
+              Join EventFlow and start managing experiences that bring people
+              together.
             </p>
           </div>
 
           {/* REGISTER FORM */}
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="space-y-5"
-          >
-
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
             {/* FULL NAME */}
             <div>
               <label className="mb-2 block text-sm font-medium">
@@ -102,7 +93,10 @@ const Register = () => {
               </label>
 
               <div className={inputWrapperClass}>
-                <UserRound size={17} className="shrink-0 text-[var(--muted-color)]" />
+                <UserRound
+                  size={17}
+                  className="shrink-0 text-[var(--muted-color)]"
+                />
 
                 <input
                   type="text"
@@ -128,7 +122,10 @@ const Register = () => {
               </label>
 
               <div className={inputWrapperClass}>
-                <Mail size={17} className="shrink-0 text-[var(--muted-color)]" />
+                <Mail
+                  size={17}
+                  className="shrink-0 text-[var(--muted-color)]"
+                />
 
                 <input
                   type="email"
@@ -158,7 +155,6 @@ const Register = () => {
               </label>
 
               <div className="grid grid-cols-2 gap-3">
-
                 <label className="cursor-pointer">
                   <input
                     type="radio"
@@ -170,7 +166,10 @@ const Register = () => {
                   <div className="flex items-center gap-2 rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-3 text-sm text-[var(--muted-color)] transition peer-checked:border-violet-500 peer-checked:bg-violet-500/10 peer-checked:text-violet-400">
                     <CalendarDays size={17} />
                     <span className="font-medium">Organizer</span>
-                    <CheckCircle2 size={15} className="ml-auto opacity-0 peer-checked:opacity-100" />
+                    <CheckCircle2
+                      size={15}
+                      className="ml-auto opacity-0 peer-checked:opacity-100"
+                    />
                   </div>
                 </label>
 
@@ -187,18 +186,18 @@ const Register = () => {
                     <span className="font-medium">Attendee</span>
                   </div>
                 </label>
-
               </div>
             </div>
 
             {/* PASSWORD */}
             <div>
-              <label className="mb-2 block text-sm font-medium">
-                Password
-              </label>
+              <label className="mb-2 block text-sm font-medium">Password</label>
 
               <div className={inputWrapperClass}>
-                <LockKeyhole size={17} className="shrink-0 text-[var(--muted-color)]" />
+                <LockKeyhole
+                  size={17}
+                  className="shrink-0 text-[var(--muted-color)]"
+                />
 
                 <input
                   type={showPassword ? "text" : "password"}
@@ -240,7 +239,10 @@ const Register = () => {
               </label>
 
               <div className={inputWrapperClass}>
-                <LockKeyhole size={17} className="shrink-0 text-[var(--muted-color)]" />
+                <LockKeyhole
+                  size={17}
+                  className="shrink-0 text-[var(--muted-color)]"
+                />
 
                 <input
                   type={showConfirmPassword ? "text" : "password"}
@@ -255,9 +257,7 @@ const Register = () => {
 
                 <button
                   type="button"
-                  onClick={() =>
-                    setShowConfirmPassword(!showConfirmPassword)
-                  }
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                   className="shrink-0 text-[var(--muted-color)] hover:text-[var(--text-color)]"
                 >
                   {showConfirmPassword ? (
@@ -278,7 +278,6 @@ const Register = () => {
             {/* TERMS */}
             <div>
               <label className="flex cursor-pointer items-start gap-3 text-sm leading-6 text-[var(--muted-color)]">
-
                 <input
                   type="checkbox"
                   className="mt-1 h-4 w-4 shrink-0 accent-violet-600"
@@ -289,21 +288,20 @@ const Register = () => {
 
                 <span>
                   I agree to the{" "}
-                  <a
-                    href="/terms"
+                  <NavLink
+                    to={"/terms"}
                     className="font-medium text-violet-400 hover:text-violet-300"
                   >
                     Terms & Conditions
-                  </a>
-                  {" "}and{" "}
-                  <a
-                    href="/privacy"
+                  </NavLink>{" "}
+                  and{" "}
+                  <NavLink
+                    to={"/privacy"}
                     className="font-medium text-violet-400 hover:text-violet-300"
                   >
                     Privacy Policy
-                  </a>.
+                  </NavLink>
                 </span>
-
               </label>
 
               {errors.agreeTerms && (
@@ -331,13 +329,11 @@ const Register = () => {
               Create Account
               <ArrowRight size={18} />
             </button>
-
           </form>
 
           {/* LOGIN LINK */}
           <div className="mt-7 text-center text-sm text-[var(--muted-color)]">
             Already have an account?
-
             <button
               type="button"
               onClick={() => navigate("/")}
@@ -346,26 +342,21 @@ const Register = () => {
               Sign in
             </button>
           </div>
-
         </main>
 
         {/* FOOTER */}
         <footer className="flex flex-col items-center justify-between gap-3 border-t border-[var(--border-color)] pt-5 text-[10px] text-[var(--muted-color)] sm:flex-row">
-
           <div className="flex items-center gap-2">
             <ShieldCheck size={14} />
             Secure registration interface
           </div>
 
           <span>EVENTFLOW · EVENT OPERATIONS PLATFORM</span>
-
         </footer>
-
       </section>
 
       {/* RIGHT SIDE - SHOWCASE */}
       <section className="relative hidden min-h-screen w-1/2 overflow-hidden bg-[#171220] text-white lg:flex lg:flex-col lg:justify-between">
-
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_20%,rgba(139,92,246,0.35),transparent_45%),radial-gradient(ellipse_at_10%_90%,rgba(91,33,182,0.25),transparent_40%),linear-gradient(145deg,#171220,#0d0c10)]" />
 
         <div className="absolute -right-32 top-1/4 h-96 w-96 rounded-full border border-violet-400/10" />
@@ -381,7 +372,6 @@ const Register = () => {
         </div>
 
         <div className="relative z-10 mx-auto w-full max-w-xl px-10 py-10 xl:px-16">
-
           <div className="mb-6 inline-block rounded-full border border-violet-400/30 bg-violet-400/10 px-4 py-2 text-[10px] font-semibold tracking-[2px] text-violet-300">
             BUILT FOR EXPERIENCES
           </div>
@@ -391,28 +381,22 @@ const Register = () => {
             <br />
             start with
             <br />
-            <span className="text-violet-400">
-              great planning.
-            </span>
+            <span className="text-violet-400">great planning.</span>
           </h2>
 
           <p className="mt-6 max-w-md text-sm leading-7 text-white/60">
-            One platform to create, manage and discover
-            unforgettable experiences. Bring your ideas
-            to life with EventFlow.
+            One platform to create, manage and discover unforgettable
+            experiences. Bring your ideas to life with EventFlow.
           </p>
 
           <div className="mt-10 space-y-6">
-
             <div className="flex items-center gap-4">
               <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-violet-400/20 bg-violet-400/10 text-violet-300">
                 <CalendarDays size={19} />
               </div>
 
               <div>
-                <strong className="text-sm">
-                  Smart Event Management
-                </strong>
+                <strong className="text-sm">Smart Event Management</strong>
                 <p className="mt-1 text-xs text-white/50">
                   Plan and manage events effortlessly.
                 </p>
@@ -425,9 +409,7 @@ const Register = () => {
               </div>
 
               <div>
-                <strong className="text-sm">
-                  Community & Connections
-                </strong>
+                <strong className="text-sm">Community & Connections</strong>
                 <p className="mt-1 text-xs text-white/50">
                   Bring organizers and attendees together.
                 </p>
@@ -440,15 +422,12 @@ const Register = () => {
               </div>
 
               <div>
-                <strong className="text-sm">
-                  Real-time Insights
-                </strong>
+                <strong className="text-sm">Real-time Insights</strong>
                 <p className="mt-1 text-xs text-white/50">
                   Keep track of your event activity.
                 </p>
               </div>
             </div>
-
           </div>
         </div>
 
@@ -456,9 +435,7 @@ const Register = () => {
           <span>CREATE. CONNECT. EXPERIENCE.</span>
           <span>POWERED BY EVENTFLOW</span>
         </div>
-
       </section>
-
     </div>
   );
 };
